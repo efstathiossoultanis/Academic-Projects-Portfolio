@@ -12,7 +12,7 @@ Welcome to my academic projects portfolio. This repository contains practical wo
     *   **UI/UX:** High-fidelity Mockups simulating the system interfaces.
     *   **Prototypes:** Functional core implementation (Login, Form Submission, and Evaluation workflows) built with Java.
 
-### 2. Business Process Modeling (BPMN)
+### 2. Public Service Modelling
 *   **Project Overview:** End-to-end business process identification, modeling, and analysis of a public service from the Greek National Register of Administrative Procedures (mitos.gov.gr).
 *   **Artifacts Included:** Detailed BPMN 2.0 and DMN (Decision Model and Notation) diagrams mapping out the complete process architecture.
 
