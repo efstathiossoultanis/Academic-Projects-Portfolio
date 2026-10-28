@@ -4,7 +4,7 @@ Welcome to my academic projects portfolio. This repository contains practical wo
 
 ## 📁 Portfolio Structure
 
-### 1. Information System Analysis & Design
+### 1. System Analysis & Design
 *   **Project Overview:** A complete system analysis and design for the University's Research Ethics and Deontology Committee (EHDE).
 *   **Artifacts Included:** 
     *   **Agile Management:** Product Backlog, User Stories, and Epics managed via Kanban principles.
