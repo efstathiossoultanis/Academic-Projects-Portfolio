@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_fb9dac65-bc5a-4198-b998-cedd81c5ef76" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" camunda:diagramRelationId="24da01a1-1bac-443e-9480-b884848209b5" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
+  <inputData id="InputData_0u1jdaz" name="ΠΟΡΙΣΜΑ ΥΓΕΙΟΝΟΜΙΚΗΣ ΕΠΙΤΡΟΠΗΣ" />
+  <decision id="Decision_1c9whzx" name="ΑΠΟΦΑΣΗ ΧΑΡΑΚΤΗΡΙΣΜΟΥ ΑΤΥΧΗΜΑΤΟΣ ΩΣ ΕΡΓΑΤΙΚΟ Ή ΜΗ">
+    <informationRequirement id="InformationRequirement_1w5mkvk">
+      <requiredInput href="#InputData_0u1jdaz" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0quq0cd">
+      <requiredInput href="#InputData_003g2cg" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1tonnwk">
+      <input id="InputClause_0m6iw5t" label="ΠΟΡΙΣΜΑ ΥΓΕΙΟΝΟΜΙΚΗΣ ΕΠΙΤΡΟΠΗΣ">
+        <inputExpression id="LiteralExpression_1ra3v67" typeRef="string" />
+        <inputValues id="UnaryTests_0i35qb8">
+          <text>"Έγκριση ανικανότητας εργασίας για διάστημα μεγαλύτερο των 30 ημερών","Έγκριση ανικανότητας εργασίας για διάστημα μικρότερο των 30 ημερών","Απόρριψη"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_1n3d7ty" label="ΑΣΦΑΛΙΣΤΙΚΕΣ ΠΡΟΫΠΟΘΕΣΕΙΣ (Ύπαρξη υπαιτιώδους συνάφειας μεταξύ εργασίας και συμβάντος)">
+        <inputExpression id="LiteralExpression_15bl629" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1aclxeo" label="ΧΑΡΑΚΤΗΡΙΣΜΟΣ ΑΤΥΧΗΜΑΤΟΣ ΩΣ ΕΡΓΑΤΙΚΟ" typeRef="boolean" />
+      <rule id="DecisionRule_0gaeusw">
+        <description>Ο αιτών πληροί όλες τις προϋποθέσεις και το ατύχημα χαρακτηρίζεται ως εργατικό.</description>
+        <inputEntry id="UnaryTests_0kn72z6">
+          <text>"Έγκριση ανικανότητας εργασίας για διάστημα μεγαλύτερο των 30 ημερών"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_026twgs">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_106l7mp">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_09mk5m2">
+        <description>Η επιτροπή έκρινε ότι δεν υπάρχει συνάφεια μεταξύ του ατυχήματος και της εργασίας, οπότε το ατύχημα χαρακτηρίζεται ως μη εργατικό.</description>
+        <inputEntry id="UnaryTests_0bh6e45">
+          <text>"Έγκριση ανικανότητας εργασίας για διάστημα μεγαλύτερο των 30 ημερών"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kt1okz">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_185se8h">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0ukf6r6">
+        <description>Η Υγειονομική Επιτροπή απέρριψε ή ενέκρινε την ανικανότητα εργασίας για διάστημα μικρότερο των 30 ημερών, οπότε το ατύχημα χαρακτηρίζεται ως μη εργατικό.</description>
+        <inputEntry id="UnaryTests_16uqv5g">
+          <text>"Έγκριση ανικανότητας εργασίας για διάστημα μικρότερο των 30 ημερών","Απόρριψη"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_175rm72">
+          <text>-</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1aijync">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_003g2cg" name="ΑΣΦΑΛΙΣΤΙΚΕΣ ΠΡΟΫΠΟΘΕΣΕΙΣ" />
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape id="DMNShape_1fch2ov" dmnElementRef="InputData_0u1jdaz">
+        <dc:Bounds height="45" width="125" x="167" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0uo0f6s" dmnElementRef="InformationRequirement_1w5mkvk">
+        <di:waypoint x="230" y="237" />
+        <di:waypoint x="310" y="180" />
+        <di:waypoint x="310" y="160" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1q4msf2" dmnElementRef="Decision_1c9whzx">
+        <dc:Bounds height="80" width="180" x="250" y="80" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1b68csc" dmnElementRef="InputData_003g2cg">
+        <dc:Bounds height="45" width="125" x="377" y="237" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1h8bjak" dmnElementRef="InformationRequirement_0quq0cd">
+        <di:waypoint x="440" y="237" />
+        <di:waypoint x="370" y="180" />
+        <di:waypoint x="370" y="160" />
+      </dmndi:DMNEdge>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>

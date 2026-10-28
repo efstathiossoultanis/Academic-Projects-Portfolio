@@ -1,0 +1,788 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="https://www.omg.org/spec/DMN/20191111/MODEL/" xmlns:dmndi="https://www.omg.org/spec/DMN/20191111/DMNDI/" xmlns:dc="http://www.omg.org/spec/DMN/20180521/DC/" xmlns:biodi="http://bpmn.io/schema/dmn/biodi/2.0" xmlns:di="http://www.omg.org/spec/DMN/20180521/DI/" xmlns:camunda="http://camunda.org/schema/1.0/dmn" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_975b41eb-16f9-46f2-b1c5-1e25c9c4da40" name="DRD" namespace="http://camunda.org/schema/1.0/dmn" camunda:diagramRelationId="151306ff-6a0e-4395-b709-f0d36a8b8a22" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.3.0">
+  <decision id="Decision_0vslh6y" name="ΕΛΕΓΧΟΣ ΠΛΗΡΟΤΗΤΑΣ ΔΙΚΑΙΟΛΟΓΗΤΙΚΩΝ">
+    <informationRequirement id="InformationRequirement_1hda1ih">
+      <requiredInput href="#InputData_00tborc" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0rfa9mp">
+      <requiredInput href="#InputData_0mmba2t" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gvepph">
+      <requiredInput href="#InputData_0iv3wg5" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gvlmch">
+      <requiredInput href="#InputData_0tvowwh" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_15z4uev">
+      <requiredDecision href="#Decision_0bvb9ex" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0irwar9">
+      <requiredDecision href="#Decision_1pul26e" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_106lwfa">
+      <requiredDecision href="#Decision_00al9ce" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0yus7i9">
+      <requiredDecision href="#Decision_0s15hic" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0azx1hv" hitPolicy="COLLECT">
+      <input id="InputClause_12cyj9i" label="ΕΓΚΥΡΟΤΗΤΑ ΠΡΟΫΠΟΘΕΣΕΩΝ">
+        <inputExpression id="LiteralExpression_0zgmz7a" typeRef="boolean">
+          <text>proipotheseis</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1tcyb5i" label="ΥΠΑΡΞΗ ΔΗΛΩΣΗΣ ΑΤΥΧΗΜΑΤΟΣ" biodi:width="190">
+        <inputExpression id="LiteralExpression_0ehehxe" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0zgh35e" label="ΥΠΑΡΞΗ ΙΑΤΡΙΚΗΣ ΓΝΩΜΑΤΕΥΣΗΣ" biodi:width="192">
+        <inputExpression id="LiteralExpression_03vvpab" typeRef="string">
+          <text></text>
+        </inputExpression>
+        <inputValues id="UnaryTests_0jhdgwg">
+          <text>"Ηλεκτρονική","Χειρόγραφη από κρατικό νοσοκομείο","Χειρόγραφη από μη κρατικό νοσοκομείο","Καμία"</text>
+        </inputValues>
+      </input>
+      <input id="InputClause_0s55xn6" label="ΑΡΙΘΜΟΣ ΜΑΡΤΥΡΙΚΩΝ ΚΑΤΑΘΕΣΕΩΝ">
+        <inputExpression id="LiteralExpression_1f0m2v0" typeRef="number">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1a3gls9" label="ΥΠΑΡΞΗ ΑΠΟΔΕΙΚΤΙΚΟΥ ΤΡΑΠΕΖΙΚΟΥ ΛΟΓΑΡΙΑΣΜΟΥ" biodi:width="192">
+        <inputExpression id="LiteralExpression_08htkwy" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_1czyytx" label="ΤΡΟΧΑΙΟ ΑΤΥΧΗΜΑ">
+        <inputExpression id="LiteralExpression_18foseg" typeRef="string">
+          <text>troxaio</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0nnsjuj" label="ΥΠΑΙΤΙΟΤΗΤΑ">
+        <inputExpression id="LiteralExpression_1hbec6e" typeRef="boolean">
+          <text>ypaitiothta</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0y8vgla" label="ΕΚΠΡΟΣΩΠΗΣΗ">
+        <inputExpression id="LiteralExpression_10alujc" typeRef="boolean">
+          <text>ekprosophsh</text>
+        </inputExpression>
+      </input>
+      <output id="Output_1" label="ΠΛΗΡΟΤΗΤΑ ΔΙΚΑΙΟΛΟΓΗΤΙΚΩΝ" name="plhrothta" typeRef="boolean" />
+      <rule id="DecisionRule_1iy6jm5">
+        <description>Τα δικαιολογητικά είναι πλήρη.</description>
+        <inputEntry id="UnaryTests_1gvbl1j">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0yptt62">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0hw7oeu">
+          <text>"Ηλεκτρονική","Χειρόγραφη από κρατικό νοσοκομείο"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j729x2">
+          <text>&gt;= 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1nv378l">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0weaxdx">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_13b07iy">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ikemhk">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_19yyagh">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1eelizm">
+        <description>Τα δικαιολογητικά δεν είναι έγκυρα, καθώς δεν πληρούνται οι προϋποθέσεις.</description>
+        <inputEntry id="UnaryTests_1akjv65">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1e3dbom">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0oe58oh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_08wm9s6">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0d2d4qg">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0lcflft">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1103j7y">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0kovosg">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_147dgs2">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_108rafs">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχει δήλωση ατυχήματος.</description>
+        <inputEntry id="UnaryTests_1dg3g1v">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0h3soq1">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pkxdab">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1sidhuh">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vas3v0">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0f9qcih">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16oq1zp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1gzskbw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0sb9tfv">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0lztkb7">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχει ιατρική γνωμάτευση.</description>
+        <inputEntry id="UnaryTests_0gig11d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_065ftbi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_00h8xui">
+          <text>"Χειρόγραφη από μη κρατικό νοσοκομείο","Καμία"</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0j18aqf">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_063p9zi">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1dzfirr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_11zt3kr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_04xzd3f">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0dgrfa5">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1cewuni">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχουν τουλάχιστον 2 μαρτυρικές καταθέσεις.</description>
+        <inputEntry id="UnaryTests_0ni33jk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1axex44">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17ryb4d">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1vvrz8c">
+          <text>&lt; 2</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_15qhda4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_05itsbk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0svcb4b">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1iudn4o">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0loc9ko">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_03y9b2l">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχει αποδεικτικό τραπεζικού λογαριασμού.</description>
+        <inputEntry id="UnaryTests_04gu08k">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1auaccp">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rhseu9">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1608hv4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1cuhnc6">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0mbuuiw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_12ee777">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1i0vaqi">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0kunhub">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_174cr40">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχει βεβαίωση ΕΚΑΒ-ΤΟΤΑ.</description>
+        <inputEntry id="UnaryTests_0ubbptk">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1m9j7cs">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0uv95cr">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bt5nzh">
+          <text>-</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0p7dl71">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_073w6w3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ulj7w1">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_17x9szw">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0irn70f">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1qa652n">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν δεν υπάρχει δήλωση υπαιτίων.</description>
+        <inputEntry id="UnaryTests_0t1551g">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1xr6iby">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0y9bpv3">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1pjardw">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0utihga">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0vlkknt">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1kbxkbi">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1c05aa9">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0v0voq8">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_104zmfz">
+        <description>Τα δικαιολογητικά είναι ελλιπή, καθώς δεν υπάρχει νόμιμη εξουσιοδότηση.</description>
+        <inputEntry id="UnaryTests_1d6xdpn">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_068rq8m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cyx86t">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fjagqe">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0fg518m">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1tfmnhd">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0bjakp4">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1h5w318">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0a12f0s">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_00tborc" name="ΜΑΡΤΥΡΙΚΕΣ ΚΑΤΑΘΕΣΕΙΣ" />
+  <inputData id="InputData_0mmba2t" name="ΑΠΟΔΕΙΚΤΙΚΟ ΤΡΑΠΕΖΙΚΟΥ ΛΟΓΑΡΙΑΣΜΟΥ" />
+  <inputData id="InputData_0iv3wg5" name="ΙΑΤΡΙΚΗ ΓΝΩΜΑΤΕΥΣΗ" />
+  <inputData id="InputData_1oaqb7t" name="ΕΞΟΥΣΙΟΔΟΤΗΣΗ ΕΚΠΡΟΣΩΠΟΥ" />
+  <inputData id="InputData_0tvowwh" name="ΔΗΛΩΣΗ ΑΤΥΧΗΜΑΤΟΣ" />
+  <decision id="Decision_0ue10w3" name="ΕΛΕΓΧΟΣ ΕΓΚΥΡΟΤΗΤΑΣ ΔΙΚΑΙΟΛΟΓΗΤΙΚΩΝ">
+    <informationRequirement id="InformationRequirement_098kma0">
+      <requiredDecision href="#Decision_0vslh6y" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_10u4g8d">
+      <requiredInput href="#InputData_1p713nc" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_1szqyr2">
+      <input id="InputClause_0vgu16t" label="ΠΛΗΡΟΤΗΤΑ">
+        <inputExpression id="LiteralExpression_0o0ivt2" typeRef="boolean">
+          <text>plhrothta</text>
+        </inputExpression>
+      </input>
+      <input id="InputClause_0r6irfu" label="ΟΡΘΟΤΗΤΑ">
+        <inputExpression id="LiteralExpression_09r3015" typeRef="boolean" />
+      </input>
+      <output id="OutputClause_17d82gp" label="ΕΓΚΥΡΟΤΗΤΑ ΔΙΚΑΙΟΛΟΓΗΤΙΚΩΝ" typeRef="string">
+        <outputValues id="UnaryTests_1p953kp">
+          <text>"Πλήρη και ορθά","Ελλιπή","Μη ορθά"</text>
+        </outputValues>
+      </output>
+      <rule id="DecisionRule_1u1bvay">
+        <description>Τα δικαιολογητικά είναι έγκυρα ως πλήρη και ορθά.</description>
+        <inputEntry id="UnaryTests_0tg05v0">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_16jnb7b">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ag65su">
+          <text>"Πλήρη και ορθά"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0u6cm2u">
+        <description>Τα δικαιολογητικά είναι άκυρα ως ελλιπή.</description>
+        <inputEntry id="UnaryTests_18ubac3">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0qzwkqs">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_195055d">
+          <text>"Ελλιπή"</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1sz1b5s">
+        <description>Τα δικαιολογητικά είναι άκυρα ως μη ορθά.</description>
+        <inputEntry id="UnaryTests_1nt3ton">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1myyqfh">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_10nhbz3">
+          <text>"Μη ορθά"</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1ohapns" name="ΤΡΟΧΑΙΟ ΑΤΥΧΗΜΑ" />
+  <inputData id="InputData_0n92x3x" name="ΥΠΑΙΤΙΟΙ" />
+  <decision id="Decision_0bvb9ex" name="ΕΛΕΓΧΟΣ ΤΡΟΧΑΙΟΥ ΑΤΥΧΗΜΑΤΟΣ">
+    <informationRequirement id="InformationRequirement_1gu5qsu">
+      <requiredInput href="#InputData_1ohapns" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_1mqwlv7">
+      <requiredInput href="#InputData_1cymt7z" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_168ufhp">
+      <input id="InputClause_0ibimd0" label="ΠΡΑΓΜΑΤΟΠΟΙΗΣΗ ΤΡΟΧΑΙΟΥ ΑΤΥΧΗΜΑΤΟΣ">
+        <inputExpression id="LiteralExpression_1pmglsx" typeRef="boolean" />
+      </input>
+      <input id="InputClause_1tusejn" label="ΥΠΑΡΞΗ ΒΕΒΑΙΩΣΗΣ ΕΚΑΒ-ΤΟΤΑ" biodi:width="193">
+        <inputExpression id="LiteralExpression_11nhvll" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1u5wphl" label="ΕΛΕΓΧΟΣ ΤΡΟΧΑΙΟΥ ΑΤΥΧΗΜΑΤΟΣ" name="troxaio" typeRef="boolean" />
+      <rule id="DecisionRule_1bmnud3">
+        <description>Έχει γίνει τροχαίο ατύχημα και υπάρχει και η βεβαίωση ΕΚΑΒ-ΤΟΤΑ, οπότε ο έλεγχος είναι έγκυρος ως πλήρης.</description>
+        <inputEntry id="UnaryTests_01vqv6c">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0nr0ofd">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_04vkoxt">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_033pds0">
+        <description>Έχει γίνει τροχαίο ατύχημα και δεν υπάρχει η βεβαίωση ΕΚΑΒ-ΤΟΤΑ, οπότε ο έλεγχος είναι άκυρος ως μη πλήρης.</description>
+        <inputEntry id="UnaryTests_05b1fjk">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0gqph8o">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_16oxt0h">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1i6d1ux">
+        <description>Δεν έχει γίνει τροχαίο ατύχημα και οπότε ο έλεγχος είναι έγκυρος χωρίς να απαιτείται βεβαίωση ΕΚΑΒ-ΤΟΤΑ.</description>
+        <inputEntry id="UnaryTests_0mjhrzh">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0ctlrys">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0cdii4r">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <decision id="Decision_1pul26e" name="ΕΛΕΓΧΟΣ ΥΠΑΙΤΙΟΤΗΤΑΣ">
+    <informationRequirement id="InformationRequirement_1u33zvs">
+      <requiredInput href="#InputData_0n92x3x" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_19voget">
+      <requiredInput href="#InputData_1ibrlf4" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0ygjrud">
+      <input id="InputClause_1p4rj5d" label="ΥΠΑΡΞΗ ΥΠΑΙΤΙΩΝ" biodi:width="192">
+        <inputExpression id="LiteralExpression_0b2rih0" typeRef="boolean" />
+      </input>
+      <input id="InputClause_0695any" label="ΥΠΑΡΞΗ ΔΗΛΩΣΗΣ ΥΠΑΙΤΙΩΝ" biodi:width="192">
+        <inputExpression id="LiteralExpression_1j2zt4c" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1u1rbqu" label="ΕΛΕΓΧΟΣ ΥΠΑΙΤΙΟΤΗΤΑΣ" name="ypaitiothta" typeRef="boolean" />
+      <rule id="DecisionRule_1ap49hw">
+        <description>Υπάρχουν υπαίτιοι και έχει αποσταλλεί η δήλωση υπαιτίων, οπότε ο έλεγχος είναι έγκυρος ως πλήρης.</description>
+        <inputEntry id="UnaryTests_1wbl8ix">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1wl72dr">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0vqlw2i">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0gn76kn">
+        <description>Υπάρχουν υπαίτιοι και δεν έχει αποσταλλεί δήλωση υπαιτίων, οπότε ο έλεγχος είναι άκυρος ως μη πλήρης.</description>
+        <inputEntry id="UnaryTests_0x0qpeo">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1rn1wfx">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_088qhlx">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_0g0njqt">
+        <description>Δεν υπάρχουν υπαίτιοι οπότε ο έλεγχος είναι έγκυρος και δεν απαιτείται δήλωση υπαιτίων.</description>
+        <inputEntry id="UnaryTests_1plt24u">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0z2913b">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1na82hk">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_1cymt7z" name="ΒΕΒΑΙΩΣΗ ΕΚΑΒ-ΤΟΤΑ" />
+  <inputData id="InputData_1ibrlf4" name="ΔΗΛΩΣΗ ΥΠΑΙΤΙΩΝ" />
+  <inputData id="InputData_0gsfu96" name="ΕΚΠΡΟΣΩΠΟΣ" />
+  <decision id="Decision_00al9ce" name="ΕΛΕΓΧΟΣ ΕΚΠΡΟΣΩΠΗΣΗΣ">
+    <informationRequirement id="InformationRequirement_031j9tb">
+      <requiredInput href="#InputData_1oaqb7t" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0gw8bqv">
+      <requiredInput href="#InputData_0gsfu96" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0mhq111">
+      <input id="InputClause_07zo7my" label="ΥΠΑΡΞΗ ΕΚΠΡΟΣΩΠΗΣΗΣ" biodi:width="192">
+        <inputExpression id="LiteralExpression_1t9dnzy" typeRef="boolean" />
+      </input>
+      <input id="InputClause_104j3oh" label="ΥΠΑΡΞΗ ΝΟΜΙΜΗΣ ΕΞΟΥΣΙΟΔΟΤΗΣΗΣ">
+        <inputExpression id="LiteralExpression_11vf2h1" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_1kcgypt" label="ΕΛΕΓΧΟΣ ΕΚΠΡΟΣΩΠΗΣΗΣ" name="ekprosophsh" typeRef="boolean" />
+      <rule id="DecisionRule_0s5nl5c">
+        <description>Υπάρχει εκπρόσωπος ο οποίος είναι νόμιμα εξουσιοδοτημένος, οπότε ο έλεγχος είναι έγκυρος.</description>
+        <inputEntry id="UnaryTests_0v0vjmy">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0akla1l">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1vnj1c0">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_00539o3">
+        <description>Υπάρχει εκπρόσωπος ο οποίος δεν είναι νόμιμα εξουσιοδοτημένος, οπότε ο έλεγχος είναι άκυρος.</description>
+        <inputEntry id="UnaryTests_0ilf12f">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1phfvln">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1ytgbgu">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_11jgctc">
+        <description>Δεν υπάρχει αίτημα για εκπροσώπηση, οπότε ο έλεγχος είναι έγκυρος χωρίς να απαιτείται εξουσιοδότηση κάποιου προσώπου.</description>
+        <inputEntry id="UnaryTests_0g5oz62">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0cw6foa">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_0marv4r">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <inputData id="InputData_13ghkk2" name="ΟΙΚΟΝΟΜΙΚΕΣ ΠΡΟΎΠΟΘΕΣΕΙΣ" />
+  <inputData id="InputData_1jwc6r6" name="ΧΡΟΝΙΚΕΣ ΠΡΟΎΠΟΘΕΣΕΙΣ" />
+  <inputData id="InputData_1p713nc" name="ΟΡΘΟΤΗΤΑ" />
+  <decision id="Decision_0s15hic" name="ΕΛΕΓΧΟΣ ΕΓΚΥΡΟΤΗΤΑΣ ΠΡΟΫΠΟΘΕΣΕΩΝ">
+    <informationRequirement id="InformationRequirement_1ww1me2">
+      <requiredInput href="#InputData_1jwc6r6" />
+    </informationRequirement>
+    <informationRequirement id="InformationRequirement_0ukeo62">
+      <requiredInput href="#InputData_13ghkk2" />
+    </informationRequirement>
+    <decisionTable id="DecisionTable_0zhs0yc">
+      <input id="InputClause_177mxa4" label="ΧΡΟΝΙΚΕΣ ΠΡΟΫΠΟΘΕΣΕΙΣ (Δεν παρήλθε χρονικό διάστημα 8 μηνών από την ημερομηνία έκδοσης της ιατρικής γνωμάτευσης)" biodi:width="192">
+        <inputExpression id="LiteralExpression_138sfi6" typeRef="boolean" />
+      </input>
+      <input id="InputClause_1r51rx9" label="ΟΙΚΟΝΟΜΙΚΕΣ ΠΡΟΫΠΟΘΕΣΕΙΣ (Ο ασφαλισμένος είναι ταμειακά ενήμερος την ημέρα του ατυχήματος)">
+        <inputExpression id="LiteralExpression_1u2ki6l" typeRef="boolean">
+          <text></text>
+        </inputExpression>
+      </input>
+      <output id="OutputClause_0hjbpfc" label="ΕΓΚΥΡΟΤΗΤΑ ΠΡΟΫΠΟΘΕΣΕΩΝ" name="proipotheseis" typeRef="boolean" />
+      <rule id="DecisionRule_04on6cx">
+        <description>Πληρούνται οι χρονικές και οικονομικές προϋποθέσεις.</description>
+        <inputEntry id="UnaryTests_0uyes3p">
+          <text>true</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_1x2h7fs">
+          <text>true</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1u4jeup">
+          <text>true</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1omoo1l">
+        <description>Δεν πληρούνται οι χρονικές προϋποθέσεις, καθώς ο αιτών δεν υπέβαλε την αίτηση για λήψη παροχών σε χρήμα εντός 8 μηνών από την αναγγελία.</description>
+        <inputEntry id="UnaryTests_0v1otcg">
+          <text>false</text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0b2f5ah">
+          <text></text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_1jws6rp">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+      <rule id="DecisionRule_1h40v6s">
+        <description>Δεν πληρούνται οι οικονομικές προϋποθέσεις, καθώς ο αιτών δεν ήταν ταμειακά ενήμερος την ημέρα του ατυχήματος.</description>
+        <inputEntry id="UnaryTests_1c0m0ua">
+          <text></text>
+        </inputEntry>
+        <inputEntry id="UnaryTests_0avtk7p">
+          <text>false</text>
+        </inputEntry>
+        <outputEntry id="LiteralExpression_07ty2sg">
+          <text>false</text>
+        </outputEntry>
+      </rule>
+    </decisionTable>
+  </decision>
+  <dmndi:DMNDI>
+    <dmndi:DMNDiagram>
+      <dmndi:DMNShape dmnElementRef="Decision_0vslh6y">
+        <dc:Bounds height="80" width="180" x="674" y="270" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1tty6u9" dmnElementRef="InputData_00tborc">
+        <dc:Bounds height="45" width="125" x="701" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0mmzrv9" dmnElementRef="InformationRequirement_1hda1ih">
+        <di:waypoint x="764" y="507" />
+        <di:waypoint x="774" y="370" />
+        <di:waypoint x="774" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0jqzcah" dmnElementRef="InputData_0mmba2t">
+        <dc:Bounds height="45" width="125" x="939" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0kod58s" dmnElementRef="InformationRequirement_0rfa9mp">
+        <di:waypoint x="1002" y="507" />
+        <di:waypoint x="814" y="370" />
+        <di:waypoint x="814" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18p38i0" dmnElementRef="InputData_0iv3wg5">
+        <dc:Bounds height="45" width="125" x="477" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1rc7s6x" dmnElementRef="InformationRequirement_0gvepph">
+        <di:waypoint x="540" y="507" />
+        <di:waypoint x="734" y="370" />
+        <di:waypoint x="734" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1okfylx" dmnElementRef="InputData_1oaqb7t">
+        <dc:Bounds height="45" width="125" x="1239" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_0ze1mh0" dmnElementRef="InformationRequirement_031j9tb">
+        <di:waypoint x="1302" y="747" />
+        <di:waypoint x="1252" y="680" />
+        <di:waypoint x="1252" y="660" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1g9tfgp" dmnElementRef="InputData_0tvowwh">
+        <dc:Bounds height="45" width="125" x="187" y="507" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wlv1ur" dmnElementRef="InformationRequirement_0gvlmch">
+        <di:waypoint x="250" y="507" />
+        <di:waypoint x="694" y="370" />
+        <di:waypoint x="694" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_17wdlzo" dmnElementRef="Decision_0ue10w3">
+        <dc:Bounds height="80" width="180" x="852" y="90" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1weni24" dmnElementRef="InputData_1ohapns">
+        <dc:Bounds height="45" width="125" x="467" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1wahwz8" dmnElementRef="InformationRequirement_1gu5qsu">
+        <di:waypoint x="530" y="747" />
+        <di:waypoint x="592" y="690" />
+        <di:waypoint x="592" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0bydeip" dmnElementRef="InputData_0n92x3x">
+        <dc:Bounds height="45" width="125" x="781" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1ye8fay" dmnElementRef="InformationRequirement_1u33zvs">
+        <di:waypoint x="844" y="747" />
+        <di:waypoint x="882" y="690" />
+        <di:waypoint x="882" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_08e8ocq" dmnElementRef="InformationRequirement_15z4uev">
+        <di:waypoint x="622" y="590" />
+        <di:waypoint x="754" y="370" />
+        <di:waypoint x="754" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1er7bmi" dmnElementRef="InformationRequirement_0irwar9">
+        <di:waypoint x="912" y="590" />
+        <di:waypoint x="794" y="370" />
+        <di:waypoint x="794" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0x3zec1" dmnElementRef="Decision_0bvb9ex">
+        <dc:Bounds height="80" width="180" x="532" y="590" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_084x5ez" dmnElementRef="Decision_1pul26e">
+        <dc:Bounds height="80" width="180" x="822" y="590" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1e6h73i" dmnElementRef="InputData_1cymt7z">
+        <dc:Bounds height="45" width="125" x="627" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1uu65gs" dmnElementRef="InputData_1ibrlf4">
+        <dc:Bounds height="45" width="125" x="939" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1yo408z" dmnElementRef="InformationRequirement_19voget">
+        <di:waypoint x="1002" y="747" />
+        <di:waypoint x="942" y="690" />
+        <di:waypoint x="942" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_0eueqsf" dmnElementRef="InputData_0gsfu96">
+        <dc:Bounds height="45" width="125" x="1089" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_115dxbz" dmnElementRef="InformationRequirement_0gw8bqv">
+        <di:waypoint x="1152" y="747" />
+        <di:waypoint x="1192" y="680" />
+        <di:waypoint x="1192" y="660" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1h950hu" dmnElementRef="Decision_00al9ce">
+        <dc:Bounds height="80" width="180" x="1132" y="580" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1y5vuww" dmnElementRef="InformationRequirement_106lwfa">
+        <di:waypoint x="1222" y="580" />
+        <di:waypoint x="834" y="370" />
+        <di:waypoint x="834" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_198mdhk" dmnElementRef="InformationRequirement_1mqwlv7">
+        <di:waypoint x="690" y="747" />
+        <di:waypoint x="652" y="690" />
+        <di:waypoint x="652" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_1vj0ew5" dmnElementRef="InputData_13ghkk2">
+        <dc:Bounds height="45" width="125" x="317" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_19ai1dz" dmnElementRef="InputData_1jwc6r6">
+        <dc:Bounds height="45" width="125" x="157" y="747" />
+      </dmndi:DMNShape>
+      <dmndi:DMNShape id="DMNShape_1z0b8as" dmnElementRef="InputData_1p713nc">
+        <dc:Bounds height="45" width="125" x="1027" y="287" />
+      </dmndi:DMNShape>
+      <dmndi:DMNEdge id="DMNEdge_1uk19xa" dmnElementRef="InformationRequirement_1ww1me2">
+        <di:waypoint x="220" y="747" />
+        <di:waypoint x="280" y="690" />
+        <di:waypoint x="280" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0k52xee" dmnElementRef="InformationRequirement_0ukeo62">
+        <di:waypoint x="380" y="747" />
+        <di:waypoint x="340" y="690" />
+        <di:waypoint x="340" y="670" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1ohoosj" dmnElementRef="InformationRequirement_0yus7i9">
+        <di:waypoint x="310" y="590" />
+        <di:waypoint x="714" y="370" />
+        <di:waypoint x="714" y="350" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_0o5uvei" dmnElementRef="InformationRequirement_098kma0">
+        <di:waypoint x="764" y="270" />
+        <di:waypoint x="912" y="190" />
+        <di:waypoint x="912" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNEdge id="DMNEdge_1ruo3lj" dmnElementRef="InformationRequirement_10u4g8d">
+        <di:waypoint x="1090" y="287" />
+        <di:waypoint x="972" y="190" />
+        <di:waypoint x="972" y="170" />
+      </dmndi:DMNEdge>
+      <dmndi:DMNShape id="DMNShape_18mr0my" dmnElementRef="Decision_0s15hic">
+        <dc:Bounds height="80" width="180" x="220" y="590" />
+      </dmndi:DMNShape>
+    </dmndi:DMNDiagram>
+  </dmndi:DMNDI>
+</definitions>
